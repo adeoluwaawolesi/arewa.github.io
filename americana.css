@@ -1,0 +1,314 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    text-decoration: none;
+    background: #222;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.hero-header{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background: #222;
+}
+
+.wrapper{
+    width: 1280px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header{
+    padding: 40px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+}
+
+.logo i{
+    height: 45px;
+    width: 45px;
+    background-color: #2727d5;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.logo .logo-text{
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+
+nav .togglebtn{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 45px;
+    right: 3%;
+    z-index: 5;
+    cursor: pointer;
+}
+
+nav .togglebtn span{
+    display: block;
+    background-color: #2727d5;
+    margin: 5px 0px;
+    width: 100%; 
+    height: 3px;
+    transition: 0.3s;
+    transition-property: transform, opacity;
+}
+
+nav .navlinks{
+    list-style-type: none;
+}
+
+nav .navlinks li{
+    display: inline-block;
+}
+
+nav .navlinks li a{
+    color: #e5e5e5;
+    margin-right: 2.5rem;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    transition: 1s ease-in-out;
+}
+
+nav .navlinks li :hover{
+    color: #2727d5;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+.container .hero-pic{
+    width: 600px;
+    height: 500px;
+}
+
+.hero-pic img{
+    opacity: 0;
+    max-width: 450px;
+    animation: zoomIn 1s ease forwards, floatImage 4s 
+    ease-in-out infinite;
+    animation-delay: 2s, 3s, 4s ;
+}
+
+.hero-text{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-text h5{
+    color: #e5e5e5;
+    font-size: 14px;
+}
+
+.hero-text h5 span{
+    color: #2727d5;
+    font-size: 16px;
+}
+
+.hero-text h1{
+    color: #2727d5;
+    font-size: 3rem;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.hero-text p{
+    color: #e5e5e5;
+}
+
+.btn-group{
+    margin: 45px 0;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+}
+
+.btn-group .btn{
+    border-color: #d5d5d5;
+    color: #fff;
+    background-color: #333;
+    padding: 12px 25px;
+    margin: 5px 0;
+    margin-right: 7px;
+    border-radius: 30px;
+    border: 2px solid #e5e5e5;
+    box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+}
+
+.btn.active{
+    border-color: #2727d5;
+}
+
+.hero-text .social i{
+    color: #e5e5e5;
+    font-size: 25px;
+    margin-right: 10px;
+    transition: 0.5s;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.hero-text .social i:hover{
+    color: #2727d5;
+}
+
+@media(max-width:930px)
+{
+
+    nav .togglebtn{
+        display: initial;
+    }
+
+    /*for toggle button*/
+
+
+    nav .navlinks{
+        position: absolute;
+        top: 110px;
+        right: -100%;
+        bottom: 0;
+        width: 60%;
+        height: 100vh;
+        background-color: #222;
+        z-index: 3;
+        box-shadow: 5px 13px 30px rgba(0,0,0,0.1);
+        transition: 0.5s;
+        padding: 25px 0px;
+    }
+
+    nav .navlinks li{
+        display: block;
+    }
+
+    nav .navlinks li a{
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    nav .navlinks.open{
+        right: 0;
+    }
+}
+
+@media(max-width:788px){
+
+    .container{
+        flex-direction: column;
+        padding-top: 2rem;
+        margin-right: -150px;
+    }
+
+    .hero-text{
+        padding: 50px 30px;
+        margin-left: -50px;
+
+    }
+    
+    .hero-text p{
+        max-width: 250px;
+    }
+
+
+}
+
+
+
+
+
+@keyframes zoomIn{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+@keyframes floatImage{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-24px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft{
+    0%{
+        transform: translatex(-100px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translatex(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight{
+    0%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTop{
+    0%{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
